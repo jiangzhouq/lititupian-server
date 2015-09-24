@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="format-detection" content="telephone=no" />
+<meta name="apple-itunes-app" content="app-id=836485862">
+    <title>3D图库手机客户端</title>
+    <style type="text/css">
+*{margin: 0;padding: 0;}
+body{background-color: #f7f7f7;font-family: Microsoft yahei;padding: 10px 10px;}
+img{max-width: 80%;}
+.shouji{position: relative;text-align: center;}
+.shouji .info{position: absolute;left: 0;top: 33%;background:url(http://cimg.178.com/app/s/20140422/zz.png) #f7f7f7 no-repeat 5px center;background-size: 40px auto;-webkit-transform:rotate(-20deg);-moz-transform:rotate(-20deg);-ms-transform:rotate(-20deg);transform:rotate(-20deg) ;padding: 10px;width: 95%;}
+.shouji .info p{font-size: 1em;color: #804c3b;padding-left:45px;text-align: left;}
+.down:after{clear: both;height: 0;overflow: hidden;width: 100%;display: block;content: "";}
+.down .iphone,.down .android,.down .wp{width: 33%;}
+.down .iphone button,.down .android button,.down .wp button{width: 90%;-webkit-border-radius: 10px;-moz-border-radius: 10px;border-radius: 10px;color: #fff;font-size: 1em;border: 0 none;height:40px;}
+.down .iphone button img,.down .android button img,.down .wp button img{vertical-align: top;height: 18px;margin-right: 5px;}
+.down .iphone button{background-color: #39bde8;cursor:pointer}
+.down .android button{background-color: #35de96;cursor:pointer;margin-left: 100%}
+.down .wp button{background-color: #67217A;cursor:pointer}
+.down .ewm{padding: 20px 0 0 10px;background: url(http://cimg.178.com/app/s/20140422/sj.png) no-repeat 30px 12px;background-size: auto 8px;}
+.down .ewm img{border: 2px solid #9d9d9d;padding: 2px;max-width: 80%}
+.download-btn a{display: block;}
+
+.browser-tips {position: fixed;top: 0;left: 0; width: 100%;}
+.browser-tips-content{position: relative; z-index: 1; margin: 0 10px; padding: 5px; background-color: #fff; border-radius: 0 0 5px 5px;}
+.browser-tips-content label{position: relative; z-index: 1; padding: 0 6px; line-height: 42px; background-color: #fff; font-size: 15px;}
+.browser-tips-content .line-with-bg{display: block; background-color: #d7eaf6; border-radius: 2px;}
+.browser-tips-content .tips-arrow{position: absolute; top: 0; right: 20px; width: 30px; height: 30px; background: url(http://cimg.178.com/app/s/20140422/arrow_v2.png) no-repeat right top; background-size: 30px 30px;}
+.browser-tips-content .font-attention{color: #f34028;}
+.browser-tips-mask{position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(36, 39, 42, .8);}
+
+
+    </style>
+
+    <script>
+    (function(window) {
+        var mobileUAKeywords = ["nokia", "sony", "ericsson", "mot", "samsung", "htc", "sgh", "lg", "sharp", "sie-",
+                    "philips", "panasonic", "alcatel", "lenovo", "iphone", "ipod", "blackberry", "meizu", 
+                    "android", "netfront", "symbian", "ucweb", "windowsce", "palm", "operamini", 
+                    "operamobi", "opera mobi", "openwave", "nexusone", "cldc", "midp", "wap", "mobile"
+                ];
+        var userAgent = navigator.userAgent;
+        var regExp = new RegExp(mobileUAKeywords.join("|"), "i");
+        var browser = {
+            mobile: !!userAgent.match(regExp),
+            android: /android/i.test(userAgent) || /linux/i.test(userAgent),
+            iPad: /iPad/i.test(userAgent),
+            isWechatBrowser: /micromessenger/i.test(userAgent)
+        };
+        
+        window.browser = browser;
+        
+    })(window);
+    </script>
+
+
+</head>
+<body>
+    <!--<div class="top"><img src="./welcome.png" alt=""></div> -->
+    <div class="shouji">
+        <img src="http://vrfessor.com/app/192408159843.jpg" alt="">
+        <div class="info">
+            <p>国内最权威的3D图片仓库</p>
+            <p>入门虚拟现实体验神器</p>
+            <p>专为手机用户打造的完美使用体验</p>
+        </div>
+    </div>
+    <div class="down">
+        <div class="android download-btn">
+            <a href="http://vrfessor.com/app/TDP.apk">
+                <button><img src="http://vrfessor.com/app/android.png" alt="">安卓下载</button>
+            </a>
+        </div>
+    </div>
+
+<script src="http://www.178.com/s/js/j152.js"></script>
+
+<script>
+    $(function() {
+        var browser = window.browser;  
+
+        if (!browser.mobile) {
+            var $scrollDownArrow = $("#scrollDownArrow");
+            var $container = $("#container");
+            
+            $scrollDownArrow.click(function() {
+                $("html, body").animate({
+                    "scrollTop": $container.offset().top
+                }, 350);
+            });
+        }
+    
+        var $downloadBtns = $(".download-btn");
+
+        if (browser.isWechatBrowser) {
+            $downloadBtns.click(function(e) {
+                if (browser.android) {
+                    e.preventDefault();
+                }
+                var $browserTips = $("<div></div>")
+                        .attr("id", "browserTips")
+                        .addClass("browser-tips")
+                        .html("<div class='browser-tips-content'>"+ "<label>微信内无法下载，请点击<span class='font-attention'>右上角</span>按钮</label>"
+                                        +   "<label class='line-with-bg'>选择<span class='font-attention'>「在浏览器中打开」</span>即可正常下载</label>"
+                                        +   "<div class='tips-arrow'></div>"
+                                        + "</div>"
+                                        + "<div class='browser-tips-mask'></div>");
+                
+                $("body").append($browserTips);
+                
+                $browserTips.find(".browser-tips-mask").click(function() {
+                    $browserTips.remove();
+                });
+
+                  });
+
+                 document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+                    WeixinJSBridge.call('showOptionMenu');
+            });
+        
+        }
+    });
+    </script>
+
+
+</body>
+</html>
+

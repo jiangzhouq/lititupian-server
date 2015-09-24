@@ -1,0 +1,8 @@
+create database if not exists tdp character set utf8;
+
+CREATE TABLE `time` (`id` int(16) unsigned NOT NULL auto_increment,`time` varchar(128) character set utf8 NOT NULL default '',PRIMARY KEY (`id`)) DEFAULT CHARSET=utf8;
+
+CREATE TABLE `category` (`id` int(16) unsigned NOT NULL auto_increment,`name` varchar(128) character set utf8 NOT NULL default '',`land` varchar(128) character set utf8 NOT NULL default '',`port` varchar(128) character set utf8 NOT NULL default '',PRIMARY KEY (`id`)) DEFAULT CHARSET=utf8;
+CREATE TABLE `tag` (`id` int(16) unsigned NOT NULL auto_increment,`name` varchar(256) character set utf8 NOT NULL default '',PRIMARY KEY (`id`)) DEFAULT CHARSET=utf8;
+
+CREATE TABLE `pics` (`id` int(16) unsigned NOT NULL auto_increment,`name` varchar(128) character set utf8 NOT NULL default '',`mode` varchar(128) character set utf8 NOT NULL default '',`category` varchar(128) character set utf8 NOT NULL default '',`tag` varchar(256) character set utf8 NOT NULL default '',PRIMARY KEY (`id`)) DEFAULT CHARSET=utf8;
